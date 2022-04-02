@@ -20,5 +20,11 @@
       system = default-system;
       user = "may";
     };
+    nixosConfigurations.bane = mkSystem {
+      inherit overlays nixpkgs home-manager;
+      system-name = "bane";
+      system = default-system;
+      user = "may";
+    };
   };
 }
