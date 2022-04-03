@@ -9,6 +9,11 @@
     '';
   };
 
+  xdg.configFile = {
+    "wayfire.ini".source = ./wayfire.ini;
+    "waybar/config".source = ./waybar.json;
+  };
+
   gtk = {
     enable = true;
     theme = {

@@ -13,7 +13,7 @@ in
   in
   [
     mopidy-nix.outPath
-    ../../desktops/wms/wayfire.nix
+    ../../desktops/wms/wayfire
     ../../desktops/wayland-tools.nix
     ../../programs/neovim
   ] ++
