@@ -25,12 +25,6 @@
 
   programs.dconf.enable = true;
 
-  #environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   programs.zsh.enable = true;
   users.users.may = {
