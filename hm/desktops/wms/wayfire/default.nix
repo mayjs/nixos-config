@@ -69,4 +69,11 @@
     package = pkgs.bibata-cursors;
     name = "Bibata-Original-Classic";
   };
+
+  services.gammastep = {
+    enable = true;
+    latitude = 47.4;
+    longitude = 9.3;
+    tray = true;
+  };
 }
