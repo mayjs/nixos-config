@@ -21,8 +21,8 @@
       name = "Adwaita";
     };
     iconTheme = {
-      package = pkgs.gnome.gnome-themes-extra;
-      name = "Adwaita";
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus";
     };
   };
   qt.enable = true;
@@ -48,6 +48,7 @@
     )
     wlogout
     xorg.setxkbmap
+    papirus-icon-theme
   ]; 
 
   systemd.user.services.wayfire = {
