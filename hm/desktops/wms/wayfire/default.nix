@@ -67,9 +67,10 @@
     };
   };
 
-  xsession.pointerCursor = {
+  home.pointerCursor = {
     package = pkgs.bibata-cursors;
     name = "Bibata-Original-Classic";
+    x11.enable = true;
   };
 
   services.gammastep = {

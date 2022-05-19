@@ -9,5 +9,17 @@
     zathura
     sxiv
     nomacs
+    vlc
+
+    # Screenshots
+    slurp
+    grim
+
+    # Display locking
+    swaylock
+    swayidle
+
+    # wayland notifications
+    mako
   ];
 }

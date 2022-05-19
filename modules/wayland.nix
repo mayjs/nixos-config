@@ -6,4 +6,6 @@
   programs.xwayland.enable = true;
   environment.variables.GDK_BACKEND = "wayland";
   environment.variables.QT_QPA_PLATFORM = "wayland";
+  # To enable swaylock unlocking
+  security.pam.services.swaylock = {};
 }
