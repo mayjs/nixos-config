@@ -49,6 +49,7 @@
     wlogout
     xorg.setxkbmap
     papirus-icon-theme
+    pamixer # For volume setting
   ]; 
 
   systemd.user.services.wayfire = {
