@@ -86,8 +86,6 @@ in
     };
   };
 
-  dconf.enable = true;
-
   services.nextcloud-client = {
     enable = true;
     # Nextcloud does not work properly with QT_QPA_PLATFORM=wayland, so we fallback to xcb here
@@ -107,10 +105,6 @@ in
   };
 
   services.pasystray.enable = true;
-
-  services.gnome-keyring = {
-    enable = false;
-  };
 
   home.sessionVariables = {
     PATH = "$PATH:$HOME/.gem/ruby/2.5.0/bin:$HOME/Utility:$HOME/.bin:$HOME/.programs/adb/platform-tools/:$HOME/.gwt2.8.1/:$HOME/.pub-cache/bin:/home/may/.cargo/bin:/home/may/go/bin:${local-scripts}";

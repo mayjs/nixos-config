@@ -37,10 +37,11 @@
           #! ${pkgs.bash}/bin/bash
 	  . "/etc/profiles/per-user/may/etc/profile.d/hm-session-vars.sh"
 
+
           # Stop any old services that may be running
           systemctl --user stop graphical-session.target graphical-session-pre.target
           # first import environment variables from the login manager
-          systemctl --user import-environment
+          dbus-update-activation-environment --systemd --all
           # then start the service
           exec systemctl --user start wayfire.service
         '';
@@ -60,7 +61,8 @@
     };
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.dbus}/bin/dbus-run-session ${pkgs.wayfire}/bin/wayfire";
+      # This is assuming we already got a dbus session from the system, otherwise we should use dbus-run-session here
+      ExecStart = "${pkgs.wayfire}/bin/wayfire";
       Restart = "on-failure";
       RestartSec = 1;
       TimeoutStopSec = 10;
