@@ -3,16 +3,7 @@ system-name: { config, pkgs, lib, ... }:
 let local-scripts = "/home/may/.local/bin";
 in
 {
-  imports = let
-    # TODO: This should be a flake...
-    mopidy-nix = builtins.fetchGit {
-      url = "https://github.com/mayjs/mopidy-nix.git";
-      rev = "b7977bae627375bfc27f21fe1fff42b1eea01674";
-      ref = "master";
-    };
-  in
-  [
-    mopidy-nix.outPath
+  imports = [
     ../../desktops/wms/wayfire
     ../../desktops/wayland-tools.nix
     ../../programs/neovim
@@ -93,16 +84,17 @@ in
   };
 
 
-  services.mopidy = {
-    enable = true;
-    extensionPackages = [
-      pkgs.mopidy-spotify
-      pkgs.mopidy-mpd
-      pkgs.mopidy-local 
-    ];
-    configuration = import ./mopidy_conf.nix;
-    extraConfigFiles = [ "~/.config/credentials/mopidy.conf" ];
-  };
+  # TODO: This needs to be migrated to the new mopidy hm integration, meaning a config migration from ini to nix is needed
+  # services.mopidy = {
+  #   enable = true;
+  #   extensionPackages = [
+  #     pkgs.mopidy-spotify
+  #     pkgs.mopidy-mpd
+  #     pkgs.mopidy-local 
+  #   ];
+  #   configuration = import ./mopidy_conf.nix;
+  #   extraConfigFiles = [ "~/.config/credentials/mopidy.conf" ];
+  # };
 
   services.pasystray.enable = true;
   services.network-manager-applet.enable = true;
