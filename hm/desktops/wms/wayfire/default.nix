@@ -1,6 +1,10 @@
 {pkgs, ...}:
 
 {
+  imports = [
+    ../../wlroots/mako.nix
+  ];
+
   home.file = {
     ".zprofile".text = ''
       if [[ -z $WAYLAND_DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] ; then
