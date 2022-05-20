@@ -105,6 +105,7 @@ in
   };
 
   services.pasystray.enable = true;
+  services.network-manager-applet.enable = true;
 
   home.sessionVariables = {
     PATH = "$PATH:$HOME/.gem/ruby/2.5.0/bin:$HOME/Utility:$HOME/.bin:$HOME/.programs/adb/platform-tools/:$HOME/.gwt2.8.1/:$HOME/.pub-cache/bin:/home/may/.cargo/bin:/home/may/go/bin:${local-scripts}";

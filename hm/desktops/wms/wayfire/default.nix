@@ -75,6 +75,9 @@
     x11.enable = true;
   };
 
+  # Prefer the SNI protocol for tray icons; this is the REQUIRED protocol for wayfire / waybar
+  xsession.preferStatusNotifierItems = true;
+
   services.gammastep = {
     enable = true;
     latitude = 47.4;
