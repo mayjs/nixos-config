@@ -21,8 +21,4 @@ nixpkgs.lib.nixosSystem rec {
       home-manager.users.${user} = getHome system-name;
     }
   ];
-
-  extraArgs = {
-    currentSystem = system;
-  };
 }
