@@ -1,8 +1,9 @@
-{pkgs, ...}:
+{pkgs, lib, ...}:
 
 {
   imports = [
     ../../wlroots/mako.nix
+    ./background.nix
   ];
 
   home.file = {
