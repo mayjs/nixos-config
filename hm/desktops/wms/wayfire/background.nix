@@ -14,9 +14,11 @@
         
         RANDOM_WALLPAPER=$(find "$WALLPAPER_PATH" -type f \( -name "*.jpg" -o -name "*.png" \) | shuf -n 1)
         if [ -n "$RANDOM_WALLPAPER" ]; then
-          ${pkgs.swaybg}/bin/swaybg --mode fill --image "$RANDOM_WALLPAPER"
+          echo "Setting wallpaper $RANDOM_WALLPAPER"
+          exec ${pkgs.swaybg}/bin/swaybg --mode fill --image "$RANDOM_WALLPAPER"
         else
           >&2 echo "No wallpapers found"
+          exit 1
         fi
       '';
     }
@@ -24,7 +26,7 @@
   in
   {  
     Unit = {
-      Description = "Wayfire background image through swaybg";
+      Description = "wayfire wallpaper through swaybg";
       Requires = [ "graphical-session-pre.target" ];
       After = [ "graphical-session-pre.target" "tray.target" ];
       PartOf = [ "graphical-session.target" ];
