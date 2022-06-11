@@ -27,7 +27,7 @@
   programs.zsh.enable = true;
   users.users.may = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "storage" "scanner" "lp"]; 
+    extraGroups = [ "wheel" "networkmanager" "storage" "scanner" "lp" "dialout" ]; 
     shell = pkgs.zsh;
   };
 
