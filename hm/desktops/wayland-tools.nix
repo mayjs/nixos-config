@@ -2,13 +2,16 @@
 {pkgs, ...}:
 
 {
+  imports = [
+    ../programs/filemanagers/pcmanfm.nix
+    ../programs/image-viewers/nomacs.nix
+  ];
+
   home.packages = with pkgs; [
-    pcmanfm
     mate.engrampa
     pavucontrol
     zathura
     sxiv
-    nomacs
     vlc
 
     # Screenshots
