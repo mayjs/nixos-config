@@ -4,6 +4,7 @@ let local-scripts = "/home/may/.local/bin";
 in
 {
   imports = [
+    ../../desktops/xdg-mime-apps.nix
     ../../desktops/wms/wayfire
     ../../desktops/wayland-tools.nix
     ../../programs/neovim
