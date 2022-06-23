@@ -8,7 +8,7 @@ in
     ../../desktops/wms/wayfire
     ../../desktops/wayland-tools.nix
     ../../programs/neovim
-    ../../programs/shells/zsh.nix
+    ../../programs/shells/bash.nix
   ] ++
   lib.optional (system-name=="despair") ../../toolsets/graphics.nix ;
   

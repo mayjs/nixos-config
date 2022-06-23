@@ -1,9 +1,8 @@
 { ... }:
 
 {
-  programs.zsh = {
+  programs.bash = {
     enable = true;
-    autocd = true;
     shellAliases = import ./aliases.nix {};
   };
 }

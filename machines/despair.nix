@@ -9,6 +9,7 @@
     ../modules/printing.nix
     ../modules/sshd.nix
     ../modules/gaming.nix
+    ../modules/default-users.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -22,14 +23,6 @@
   networking.interfaces.enp3s0.useDHCP = true;
 
   programs.dconf.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  programs.zsh.enable = true;
-  users.users.may = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "storage" "scanner" "lp" "dialout" ]; 
-    shell = pkgs.zsh;
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
