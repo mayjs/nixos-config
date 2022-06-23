@@ -12,7 +12,8 @@ nnoremap <C-P> :Telescope fd<CR>
 nnoremap <leader>p :Telescope fd<CR>
 
 nnoremap <leader>t :FloatermToggle<CR>
-nnoremap <leader>o :Vista finder<CR>
+
+noremap <leader>b :NvimTreeToggle<CR>
 
 lua << EOF 
 -- Mappings.
@@ -48,7 +49,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
+local servers = { 'pyright', 'rust_analyzer', 'clangd' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
@@ -58,3 +59,5 @@ for _, lsp in pairs(servers) do
     }
   }
 end
+
+require("nvim-tree").setup()

@@ -25,8 +25,19 @@
           };
         };
       };
-    in
-     with pkgs.vimPlugins; [customPlugins.vim-code-dark vim-airline vim-nix vim-floaterm customPlugins.vim-openscad nvim-lspconfig telescope-nvim vim-sleuth];
+    in 
+    with pkgs.vimPlugins; [
+      customPlugins.vim-code-dark
+      vim-airline
+      vim-nix
+      vim-floaterm
+      customPlugins.vim-openscad
+      nvim-lspconfig
+      telescope-nvim
+      vim-sleuth
+      nvim-tree-lua
+      nvim-web-devicons
+    ];
     extraConfig = builtins.readFile ./extra_init.vim;
     vimAlias = true;
     vimdiffAlias = true;
