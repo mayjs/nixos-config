@@ -8,6 +8,7 @@ in
     ../../desktops/wms/wayfire
     ../../desktops/wayland-tools.nix
     ../../programs/neovim
+    ../../programs/shells/zsh.nix
   ] ++
   lib.optional (system-name=="despair") ../../toolsets/graphics.nix ;
   
@@ -58,11 +59,6 @@ in
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-wayland;
-  };
-
-  programs.zsh = {
-    enable = true;
-    autocd = true;
   };
 
   programs.git = {
