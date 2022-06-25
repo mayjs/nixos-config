@@ -6,13 +6,12 @@
     ./background.nix
   ];
 
-  home.file = {
-    ".zprofile".text = ''
-      if [[ -z $WAYLAND_DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] ; then
-	startwayfire
-      fi
-    '';
-  };
+  # TODO: Find a nice way to make this shell-independent
+  programs.bash.initExtra = ''
+    if [[ -z $WAYLAND_DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] ; then
+      startwayfire
+    fi
+  '';
 
   xdg.configFile = {
     "wayfire.ini".source = ./wayfire.ini;
