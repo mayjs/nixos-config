@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = { home-manager, nixpkgs, ... }: let 
+  outputs = { self, home-manager, nixpkgs, ... }: let 
     mkSystem = import ./lib/mkSystem.nix;
     overlays = [];
     default-system = "x86_64-linux";
@@ -26,5 +26,7 @@
       system = default-system;
       user = "may";
     };
+
+    hydraJobs.despair."x86_64-linux" = self.nixosConfigurations.despair.config.system.build.toplevel;
   };
 }
