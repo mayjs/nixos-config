@@ -10,6 +10,7 @@
     ../modules/sshd.nix
     ../modules/gaming.nix
     ../modules/default-users.nix
+    ../modules/caps2esc.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
