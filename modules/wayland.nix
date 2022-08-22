@@ -8,4 +8,8 @@
   environment.variables.QT_QPA_PLATFORM = "wayland";
   # To enable swaylock unlocking
   security.pam.services.swaylock = {};
+
+  imports = [
+    ./misc/udisks.nix
+  ];
 }
