@@ -28,7 +28,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      # The lines below should be either separated into their own file or install using something like home-manager
-     tdesktop # Telegram Desktop
      firefox-wayland thunderbird-wayland
      # firefox thunderbird
      keepassxc
