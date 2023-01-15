@@ -24,6 +24,16 @@
             sha256 = "0zdhhv3h8lzba8dpv0amc5abpkzayp6gbjw6qv712p638zyr99vw";
           };
         };
+
+        smartyank = pkgs.vimUtils.buildVimPlugin {
+          name = "smartyank";
+          src = pkgs.fetchFromGitHub {
+            owner = "ibhagwan";
+            repo = "smartyank.nvim";
+            rev = "e474bd74497ef968d4b9ea636e3f8237365e09a7";
+            sha256 = "sha256-PTvh3duu6DW2Hy2Mye6V7lw/E0FfPLGRCQJjQl1SFag=";
+          };
+        };
       };
     in 
     with pkgs.vimPlugins; [
@@ -37,9 +47,14 @@
       vim-sleuth
       nvim-tree-lua
       nvim-web-devicons
+      customPlugins.smartyank
+      leap-nvim
+      rust-tools-nvim
     ];
     extraConfig = builtins.readFile ./extra_init.vim;
     vimAlias = true;
     vimdiffAlias = true;
   };
+
+  home.packages = [ pkgs.nil pkgs.nixpkgs-fmt ];
 }

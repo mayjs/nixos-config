@@ -15,6 +15,10 @@ nnoremap <leader>t :FloatermToggle<CR>
 
 noremap <leader>b :NvimTreeToggle<CR>
 
+set signcolumn=yes
+set number
+
+
 lua << EOF 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -44,12 +48,12 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.format {async=true}<CR>', opts)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'clangd' }
+local servers = { 'pyright', 'rust_analyzer', 'clangd', 'nil_ls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
@@ -61,3 +65,24 @@ for _, lsp in pairs(servers) do
 end
 
 require("nvim-tree").setup()
+
+require("smartyank").setup()
+
+local leap = require('leap')
+leap.setup({})
+leap.set_default_keymaps()
+
+local rt = require("rust-tools")
+
+rt.setup({
+  server = {
+    on_attach = function(client, bufnr)
+      -- Call the local on-attach for lspconfig
+      on_attach(client, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
+  },
+})
