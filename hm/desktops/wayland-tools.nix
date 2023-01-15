@@ -8,7 +8,10 @@
   ];
 
   home.packages = with pkgs; [
+    # Archive management
     mate.engrampa
+    unzip zip
+
     pavucontrol
     zathura
     sxiv
