@@ -5,7 +5,8 @@ in
 {
   imports = [
     ../../desktops/xdg-mime-apps.nix
-    ../../desktops/wms/wayfire
+    # ../../desktops/wms/wayfire
+    ../../desktops/wms/hyprland
     ../../desktops/wayland-tools.nix
     ../../programs/neovim
     ../../programs/shells/bash.nix

@@ -7,21 +7,22 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, home-manager, nixpkgs, ... }: let 
+  outputs = { self, home-manager, nixpkgs, hyprland, ... }: let 
     mkSystem = import ./lib/mkSystem.nix;
     overlays = [];
     default-system = "x86_64-linux";
   in {
     nixosConfigurations.despair = mkSystem {
-      inherit overlays nixpkgs home-manager;
+      inherit overlays nixpkgs home-manager hyprland;
       system-name = "despair";
       system = default-system;
       user = "may";
     };
     nixosConfigurations.bane = mkSystem {
-      inherit overlays nixpkgs home-manager;
+      inherit overlays nixpkgs home-manager hyprland;
       system-name = "bane";
       system = default-system;
       user = "may";
