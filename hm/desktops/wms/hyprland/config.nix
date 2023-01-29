@@ -7,7 +7,7 @@ in
   wayland.windowManager.hyprland.extraConfig = ''
     $mod = SUPER
 
-    exec-once = systemd = bash -c "systemctl --user import-environment; systemctl --user start graphical-session.target"
+    exec-once = bash -c "systemctl --user import-environment; systemctl --user start graphical-session.target"
     exec-once = gnome-keyring-daemon -s
 
     general {
