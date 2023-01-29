@@ -12,7 +12,7 @@
 
   outputs = { self, home-manager, nixpkgs, hyprland, ... }: let 
     mkSystem = import ./lib/mkSystem.nix;
-    overlays = [];
+    overlays = [ hyprland.overlays.default ];
     default-system = "x86_64-linux";
   in {
     nixosConfigurations.despair = mkSystem {

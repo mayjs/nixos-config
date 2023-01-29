@@ -3,6 +3,7 @@
 {
   imports = [
     ../../wlroots/mako.nix
+    ../../wlroots/waybar.nix
     ./config.nix
   ];
 

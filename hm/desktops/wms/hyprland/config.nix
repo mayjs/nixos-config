@@ -7,6 +7,9 @@ in
   wayland.windowManager.hyprland.extraConfig = ''
     $mod = SUPER
 
+    exec-once = systemd = bash -c "systemctl --user import-environment; systemctl --user start graphical-session.target"
+    exec-once = gnome-keyring-daemon -s
+
     general {
       layout = master
     }
@@ -20,6 +23,11 @@ in
       rounding = 4
       drop_shadow = 1
       shadow_range = 4
+    }
+
+    binds {
+      workspace_back_and_forth = true
+      allow_workspace_cycles = true
     }
 
     # Master layout stuff
@@ -49,6 +57,10 @@ in
 
     # Workspaces ($mod + number => switch to workspace, $mod SHIFT + number => Move window to workspace)
     ${builtins.concatStringsSep "\n" (builtins.map (ws: "bind = $mod,${ws},workspace,${ws}\nbind = $mod SHIFT,${ws},movetoworkspace,${ws}") (builtins.map (ws: builtins.toString ws) (range workspaces)))}
+    bind=$mod CONTROL,Right,workspace,e+1
+    bind=$mod CONTROL,Left,workspace,e-1
+    bind=$mod CONTROL SHIFT,Right,movetoworkspace,+1
+    bind=$mod CONTROL SHIFT,Left,movetoworkspace,-1
 
     # Special workspace / overlayable workspace for an always-open terminal
     bind=$mod,T,togglespecialworkspace
