@@ -9,4 +9,6 @@
     rocm-opencl-icd
     rocm-opencl-runtime
   ];
+
+  programs.corectrl.enable = true; # Attempt to workaround 7900XT issues
 }
