@@ -1,15 +1,16 @@
-{config, pkgs,...}:
+{ pkgs,...}:
 
 {
   imports = [
     ../modules/misc 
     ../modules/hardware/amdgpu.nix
     ../modules/wayland.nix
-    ../modules/gnome-keyring.nix
+    # ../modules/gnome-keyring.nix
     ../modules/printing.nix
     ../modules/sshd.nix
     ../modules/gaming.nix
     ../modules/default-users.nix
+    ../modules/plasma.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
