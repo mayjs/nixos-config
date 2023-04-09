@@ -50,6 +50,7 @@
       customPlugins.smartyank
       leap-nvim
       rust-tools-nvim
+      symbols-outline-nvim
     ];
     extraConfig = builtins.readFile ./extra_init.vim;
     vimAlias = true;

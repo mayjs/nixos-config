@@ -86,3 +86,9 @@ rt.setup({
     end,
   },
 })
+
+require("symbols-outline").setup({
+  auto_close = true,
+  autofold_depth = 0,
+})
+vim.keymap.set("n", "<C-O>", "<cmd>SymbolsOutline<CR>")
