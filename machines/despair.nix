@@ -10,7 +10,10 @@
     ../modules/sshd.nix
     ../modules/gaming.nix
     ../modules/default-users.nix
-    ../modules/plasma.nix
+    #../modules/plasma.nix
+    ../modules/gnome.nix
+    ../modules/virt-manager.nix
+    ../modules/scanning.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -21,7 +24,7 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp3s0.useDHCP = true;
+  networking.interfaces.enp4s0.useDHCP = true;
 
   programs.dconf.enable = true;
 
