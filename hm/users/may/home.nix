@@ -10,6 +10,7 @@ in
     ../../desktops/wayland-tools.nix
     ../../programs/neovim
     ../../programs/shells/bash.nix
+    ../../mounts/photos_nas.nix
   ] ++
   lib.optional (system-name=="despair") ../../toolsets/graphics.nix ;
   
