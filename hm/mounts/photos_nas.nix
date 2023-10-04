@@ -4,6 +4,12 @@
   systemd.user.mounts.home-may-Pictures-Photos = {
     Unit = {
       Description = "the photo directory on the NAS";
+      After = "graphical-session-pre.target";
+      Wants = "graphical-session-pre.target";
+    };
+
+    Install = {
+      WantedBy = ["graphical-session.target"];
     };
 
     Mount = {
