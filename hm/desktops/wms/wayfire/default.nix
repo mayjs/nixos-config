@@ -22,7 +22,7 @@
     enable = true;
     theme = {
       package = pkgs.gnome.gnome-themes-extra;
-      name = "Adwaita";
+      name = "Adwaita-dark";
     };
     iconTheme = {
       package = pkgs.papirus-icon-theme;
@@ -74,8 +74,8 @@
   };
 
   home.pointerCursor = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Original-Classic";
+    package = pkgs.gnome.adwaita-icon-theme;
+    name = "Adwaita";
     x11.enable = true;
   };
 

@@ -5,15 +5,12 @@ in
 {
   imports = [
     ../../desktops/xdg-mime-apps.nix
-    # ../../desktops/wms/wayfire
-    ../../desktops/wms/hyprland
-    ../../desktops/wayland-tools.nix
     ../../programs/neovim
     ../../programs/shells/bash.nix
     ../../mounts/photos_nas.nix
   ] ++
   lib.optional (system-name=="despair") ../../toolsets/graphics.nix ;
-  
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -39,8 +36,6 @@ in
     cantata # media playback
     alacritty # Terminal Emulator
 
-    #kicad # Electronics
-
     # Communication
     signal-desktop
     
@@ -52,10 +47,12 @@ in
     (nerdfonts.override { fonts = ["Iosevka" "VictorMono"]; })
 
     vscode
-
-    libreoffice
     
     gnome.gnome-keyring
+
+    direnv
+
+    joplin-desktop
   ];
 
   programs.firefox = {
@@ -111,5 +108,4 @@ in
     # Fix QT applications broken scaling...
     QT_AUTO_SCREEN_SCALE_FACTOR = "0";
   };
-
 }

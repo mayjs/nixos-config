@@ -1,4 +1,4 @@
-{ nixpkgs, home-manager, system, user, overlays, system-name, hyprland }:
+{ nixpkgs, home-manager, system, user, system-name }:
 
 let getHome = import ../hm/users/${user}/home.nix;
     hostname = import ./hostname.nix;
@@ -7,9 +7,6 @@ nixpkgs.lib.nixosSystem {
   inherit system;
 
   modules = [
-    { nixpkgs.overlays = overlays; }
-
-
     ../machines/hardware/${system-name}.nix
     ../machines/${system-name}.nix
     (hostname system-name)
@@ -18,7 +15,6 @@ nixpkgs.lib.nixosSystem {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.backupFileExtension = "hmbackup";
-      home-manager.sharedModules = [ hyprland.homeManagerModules.default ];
       home-manager.users.${user} = getHome system-name;
     }
   ];
