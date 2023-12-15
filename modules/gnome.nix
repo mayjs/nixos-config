@@ -7,7 +7,10 @@
 
   programs.dconf.enable = true;
 
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
   environment.systemPackages = with pkgs; [
     gnomeExtensions.tiling-assistant
+    gnomeExtensions.systemd-manager
   ];
 }

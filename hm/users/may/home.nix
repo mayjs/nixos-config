@@ -7,7 +7,9 @@ in
     ../../desktops/xdg-mime-apps.nix
     ../../programs/neovim
     ../../programs/shells/bash.nix
+    ../../programs/terminals/wezterm.nix
     ../../mounts/photos_nas.nix
+    ../../mounts/music_nas.nix
   ] ++
   lib.optional (system-name=="despair") ../../toolsets/graphics.nix ;
 
@@ -34,7 +36,6 @@ in
 
   home.packages = with pkgs; [
     cantata # media playback
-    alacritty # Terminal Emulator
 
     # Communication
     signal-desktop
