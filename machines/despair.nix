@@ -4,6 +4,7 @@
   imports = [
     ../modules/misc 
     ../modules/hardware/amdgpu.nix
+    ../modules/hardware/vial_keyboards.nix
     ../modules/wayland.nix
     # ../modules/gnome-keyring.nix
     ../modules/printing.nix
