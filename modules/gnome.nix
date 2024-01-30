@@ -12,5 +12,6 @@
   environment.systemPackages = with pkgs; [
     gnomeExtensions.tiling-assistant
     gnomeExtensions.systemd-manager
+    wl-clipboard
   ];
 }
