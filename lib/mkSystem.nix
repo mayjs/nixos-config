@@ -1,4 +1,4 @@
-{ nixpkgs, home-manager, system, user, system-name }:
+{ nixpkgs, home-manager, system, user, system-name, agenix }:
 
 let getHome = import ../hm/users/${user}/home.nix;
     hostname = import ./hostname.nix;
@@ -16,6 +16,11 @@ nixpkgs.lib.nixosSystem {
       home-manager.useUserPackages = true;
       home-manager.backupFileExtension = "hmbackup";
       home-manager.users.${user} = getHome system-name;
+    }
+
+    agenix.nixosModules.default
+    {
+      environment.systemPackages = [ agenix.packages.${system}.default ];
     }
   ];
 }

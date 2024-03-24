@@ -1,0 +1,7 @@
+let
+  despair_mayjs = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDab6aC4MiFR3/c9Evmk8l1ylyeesL/NXWJ2bkLZ537jFGcXEpSEYvXYaJ/ARNDpQbxouYbphZdKbB4IefXJuL7Yea0LSXf2Qy1epbu3F0PAxJxMaIIDkDwDWWpI1Ej0fz68GddRjPxIKyN9snQhHE6SKZGrdPXn6dFlzzu56C63avLzBgAJyCyulhYrF9b7xcXIe7Ycnqnhwketq10dvNEHAXNSMdIggXmUzvxLfcLd8Kfw4ClFAvYmndrtwXdzhEzWFSxDBkvnhBKH4ffczfdVwZqbCU5cvITtkriCOfj5/yVfg9uc78uOHgMtRpHu9yqwpnkvkXi/oy7DtaZ84WFVwXpMF8v4taxqW9GO4rNJ7t5Fs9Ooa07rIfgNFRmhk6GAZ08TZtSwI2piFdHth9+eAwRc3nifdT1dYULLysduZpmkTCFjl86jXhmvC9unZNAlWnQz5wZjPGxe+N6E3Cag70LBIawnFH4HPq61KHEHoHfjIzytTG/i/bIR5IKSbs= may@despair";
+  despair_system = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEJjN9l4JYf4PpTIMG2x+6pCrDJXYGEjkv8lfRGDD15N root@despair";
+in
+  {
+    "davfs_mayjs.age".publicKeys = [ despair_mayjs despair_system ];
+  }
