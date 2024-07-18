@@ -49,7 +49,7 @@ in
 
     vscode
     
-    gnome.gnome-keyring
+    gnome-keyring
 
     direnv
 

@@ -3,7 +3,7 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  nix = { package = pkgs.nixUnstable;
+  nix = { package = pkgs.nixVersions.latest;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
