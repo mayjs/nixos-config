@@ -7,7 +7,7 @@ in
     ../../desktops/xdg-mime-apps.nix
     ../../programs/neovim
     ../../programs/shells/bash.nix
-    ../../programs/terminals/wezterm.nix
+    ../../programs/terminals/foot.nix
     ../../mounts/photos_nas.nix
     ../../mounts/music_nas.nix
   ] ++
