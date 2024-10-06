@@ -10,6 +10,7 @@ in
     ../../programs/terminals/foot.nix
     ../../mounts/photos_nas.nix
     ../../mounts/music_nas.nix
+    ../../desktops/gnome/nautilus/scripts.nix
   ] ++
   lib.optional (system-name=="despair") ../../toolsets/graphics.nix ;
 
