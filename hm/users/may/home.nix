@@ -6,6 +6,7 @@ in
   imports = [
     ../../desktops/xdg-mime-apps.nix
     ../../programs/neovim
+    ../../programs/helix
     ../../programs/shells/bash.nix
     ../../programs/terminals/foot.nix
     ../../mounts/photos_nas.nix
