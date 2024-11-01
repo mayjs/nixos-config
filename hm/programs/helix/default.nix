@@ -3,6 +3,11 @@
     enable = true;
     settings = {
       theme = "dark_plus";
+      editor.cursor-shape = {
+        normal = "block";
+        insert = "bar";
+        select = "underline";
+      };
     };
     languages.language = [
       {

@@ -1,20 +1,27 @@
-system-name: { config, pkgs, lib, ... }:
-
-let local-scripts = "/home/may/.local/bin";
-in
-{
-  imports = [
-    ../../desktops/xdg-mime-apps.nix
-    ../../programs/neovim
-    ../../programs/helix
-    ../../programs/shells/bash.nix
-    ../../programs/terminals/foot.nix
-    ../../mounts/photos_nas.nix
-    ../../mounts/music_nas.nix
-    ../../desktops/gnome/nautilus/scripts.nix
-  ] ++
-  lib.optional (system-name=="despair") ../../toolsets/graphics.nix ;
-
+system-name: {
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  local-scripts = "/home/may/.local/bin";
+in {
+  imports =
+    [
+      ../../desktops/xdg-mime-apps.nix
+      ../../programs/neovim
+      ../../programs/helix
+      ../../programs/shells/bash.nix
+      ../../programs/terminals/foot.nix
+      ../../mounts/photos_nas.nix
+      ../../mounts/music_nas.nix
+      ../../desktops/gnome/nautilus/scripts.nix
+      ../../toolsets/cli_repo_management
+    ]
+    ++ lib.optionals (system-name == "despair") [
+      ../../toolsets/graphics.nix
+      ../../mounts/photos_originals.nix
+    ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -41,16 +48,16 @@ in
 
     # Communication
     signal-desktop
-    
+
     bash
 
     fzf
     ripgrep
 
-    (nerdfonts.override { fonts = ["Iosevka" "VictorMono"]; })
+    (nerdfonts.override {fonts = ["Iosevka" "VictorMono"];})
 
     vscode
-    
+
     gnome-keyring
 
     direnv
@@ -79,9 +86,8 @@ in
   services.nextcloud-client = {
     enable = true;
     # Nextcloud does not work properly with QT_QPA_PLATFORM=wayland, so we fallback to xcb here
-    #package = pkgs.nextcloud-client.overrideAttrs (old: { qtWrapperArgs =  (old.qtWrapperArgs or []) ++ ["--set QT_QPA_PLATFORM xcb"];}); 
+    #package = pkgs.nextcloud-client.overrideAttrs (old: { qtWrapperArgs =  (old.qtWrapperArgs or []) ++ ["--set QT_QPA_PLATFORM xcb"];});
   };
-
 
   # TODO: This needs to be migrated to the new mopidy hm integration, meaning a config migration from ini to nix is needed
   # services.mopidy = {
@@ -89,7 +95,7 @@ in
   #   extensionPackages = [
   #     pkgs.mopidy-spotify
   #     pkgs.mopidy-mpd
-  #     pkgs.mopidy-local 
+  #     pkgs.mopidy-local
   #   ];
   #   configuration = import ./mopidy_conf.nix;
   #   extraConfigFiles = [ "~/.config/credentials/mopidy.conf" ];
