@@ -1,14 +1,11 @@
-
-{ config, pkgs, ... }:
-
-{
-  hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
-  hardware.pulseaudio.support32Bit = true;
+{pkgs, ...}: {
+  hardware.graphics.enable32Bit = true;
+  hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [libva];
 
   environment.systemPackages = with pkgs; [
-    steam 
+    steam
     lutris
-    vulkan-tools vulkan-loader
+    vulkan-tools
+    vulkan-loader
   ];
 }

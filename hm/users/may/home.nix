@@ -54,7 +54,8 @@ in {
     fzf
     ripgrep
 
-    (nerdfonts.override {fonts = ["Iosevka" "VictorMono"];})
+    nerd-fonts.iosevka
+    nerd-fonts.victor-mono
 
     vscode
 
@@ -87,6 +88,11 @@ in {
     enable = true;
     # Nextcloud does not work properly with QT_QPA_PLATFORM=wayland, so we fallback to xcb here
     #package = pkgs.nextcloud-client.overrideAttrs (old: { qtWrapperArgs =  (old.qtWrapperArgs or []) ++ ["--set QT_QPA_PLATFORM xcb"];});
+  };
+  systemd.user.services.nextcloud-client = {
+    Unit = {
+      After = pkgs.lib.mkForce "graphical-session.target";
+    };
   };
 
   # TODO: This needs to be migrated to the new mopidy hm integration, meaning a config migration from ini to nix is needed
