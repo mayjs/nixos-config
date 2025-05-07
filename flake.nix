@@ -8,9 +8,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix.url = "github:ryantm/agenix";
+    neuratable.url = "github:mayjs/Neuratable";
   };
 
-  outputs = { self, home-manager, nixpkgs, agenix, ... }: let
+  outputs = {
+    self,
+    home-manager,
+    nixpkgs,
+    agenix,
+    neuratable,
+    ...
+  }: let
     mkSystem = import ./lib/mkSystem.nix;
     default-system = "x86_64-linux";
   in {
@@ -19,6 +27,11 @@
       system-name = "despair";
       system = default-system;
       user = "may";
+      extra_modules = [
+        {
+          environment.systemPackages = [neuratable.packages.${default-system}.default];
+        }
+      ];
     };
     nixosConfigurations.bane = mkSystem {
       inherit nixpkgs home-manager agenix;

@@ -12,7 +12,7 @@ in {
       ../../programs/neovim
       ../../programs/helix
       ../../programs/shells/bash.nix
-      ../../programs/terminals/foot.nix
+      ../../programs/terminals/ghostty.nix
       ../../mounts/photos_nas.nix
       ../../mounts/music_nas.nix
       ../../desktops/gnome/nautilus/scripts.nix
